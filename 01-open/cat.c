@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
     {
         if (total_size >= 4096)
         {
-            printf("Error: buffer overflow. Cannot continue reading  files.\n");
-            return 1;
+            printf("Error: buffer overflow. Cannot continue reading files.\n");
+            exit(1);
         }
         int fp = open(argv[idx], O_RDONLY);
         if (!fp)
