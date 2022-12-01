@@ -25,15 +25,15 @@ int main(int argc, char *argv[])
             printf("Error: buffer overflow. Cannot continue reading  files.\n");
             return 1;
         }
-        FILE *fp = fopen(argv[idx], "r");
+        int fp = open(argv[idx], O_RDONLY);
         if (!fp)
         {
             printf("Error opening file %s\n", argv[idx]);
             return 1;
         }
-        int size = fread(buffer + total_size, 1, 4096 - total_size, fp);
+        int size = read(fp, buffer + total_size, 4096 - total_size);
         total_size += size;
-        fclose(fp);
+        close(fp);
     }
     printf("%s\n", buffer);
 }
