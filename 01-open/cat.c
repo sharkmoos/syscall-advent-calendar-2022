@@ -6,13 +6,34 @@
 #include <unistd.h>
 
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     // For cat, we have to iterate over all command-line arguments of
     // our process. Thereby, argv[0] is our program binary itself ("./cat").
     int idx;
-    for (idx = 1; idx < argc; idx++) {
+    for (idx = 1; idx < argc; idx++)
+    {
         printf("argv[%d] = %s\n", idx, argv[idx]);
     }
-
-    return 0;
+    char buffer[4096];
+    int total_size = 0;
+    // for each file concatenate it's contents in global variable buffer and write the result to stdout
+    for (idx = 1; idx < argc; idx++)
+    {
+        if (total_size >= 4096)
+        {
+            printf("Error: buffer overflow. Cannot continue reading  files.\n");
+            return 1;
+        }
+        FILE *fp = fopen(argv[idx], "r");
+        if (!fp)
+        {
+            printf("Error opening file %s\n", argv[idx]);
+            return 1;
+        }
+        int size = fread(buffer + total_size, 1, 4096 - total_size, fp);
+        total_size += size;
+        fclose(fp);
+    }
+    printf("%s\n", buffer);
 }
