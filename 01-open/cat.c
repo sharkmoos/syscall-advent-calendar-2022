@@ -35,5 +35,5 @@ int main(int argc, char *argv[])
         total_size += size;
         close(fp);
     }
-    printf("%s\n", buffer);
+    write(1, buffer, total_size);
 }
