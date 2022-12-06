@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="shortcut icon" href="../../static/favicon.ico" type="image/x-icon">
+    <title> OSG - A Map to Persistance!</title>
+
+    <!-- Bootstrap -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../static/style.css" rel="stylesheet" />
+    <script language="JavaScript" type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="https://www3.tuhh.de/osg/p/advent-03-mmap" rel="bookmark" />
+
+</head>
+<body>
+<div class="container d-flex flex-column" style="min-height: 100vh; background: #E4E4E4";>
+    <div class="row">
+        <div class="col-md-3 d-none d-md-block" style="background: white; height:80px;">
+            <a id="tuhh-logo" href="https://www.tuhh.de/" title="TUHH Website">
+                <img id="tuhh-logo-title" style="max-width: 67%; max-height:70px; margin: 10px 16%; " data-fallback="../../static/img/tuhh-logo.gif" alt="TUHH" src="../../static/img/tuhh-logo.svg">
+            </a>
+        </div>
+        <div class="col-xs-12 col-md-9 d-flex" style="background: #f8f8f8; height:80px;">
+            <div class="flex-grow-1 d-none d-sm-block" " style="position: relative;">
+            <span class="d-sm-none d-md-inline" style="position:absolute; top: 10px; font: 14px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;">E-EXK4</span>
+            <a style="position:absolute; bottom: 10px; text-decoration: none; font: 36px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;" href="../../" title="Operating System Group">Operating System Group</a>
+        </div>
+        <div class="flex-grow-1 d-sm-none" " style="position: relative;">
+        <a style="position:absolute; bottom: 10px; text-decoration: none; font: 36px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;" href="../../" title="Operating System Group">OSG</a>
+    </div>
+    <a href="../../Advent/">
+        <img style="height:90%; padding-top:10px; padding-right:10px; " alt="OSG Logo" data-fallback="../../Advent/tux.svg" src="../../Advent/tux.svg" />
+    </a>
+    <img style="height:90%; padding-top:10px; " alt="OSG Logo" data-fallback="../../static/img/osg-logo.png" src="../../static/img/osg-logo.svg" />
+</div>
+</div>
+<div class="row">
+    <div class="col-md-3 flex-fill"><!-- Empty --></div>
+    <div class="col-md-9" style="padding: 0px;">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="../../index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item "><a class="nav-link" href="../../People/" >People</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Research/" >Research</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Publications/" >Publications</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Lehre/" >Teaching</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Theses/" >Theses (BA/MA)</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Advent" >🎄 Advent(2) 🎄</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../kontakt.html" >Contact</a> </li>
+                    <hr class="d-block d-sm-none" />
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="../../Advent/" >Task overview</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://collaborating.tuhh.de/e-exk4/advent" >Git repository</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://lists.tuhh.de/sympa/info/osg-advent" >Mailing list</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://communicating.tuhh.de/eim/channels/osg-advent" >Mattermost (TUHH)</a>
+                    </li>
+
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </nav>
+        <div style="height: 150px; background: #FFF7EA url('../../static/img/banner.jpg') 50% 50% no-repeat;">
+            <a class="float-end" style="text-decoration:none; font-size:40%; color:white" href="https://commons.wikimedia.org/wiki/Category:Technische_Universit%C3%A4t_Hamburg?uselang=de#/media/File:Geb%C3%A4ude_E,_der_sogenannte_Lindwurm.jpg">
+                Denis Sasinska, CC BY-SA 4.0
+            </a>
+        </div>
+        <nav style="--bs-breadcrumb-divider: '>';"  aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="https://www.tuhh.de">TUHH</a></li>
+                <li class="breadcrumb-item"><a  href="../../Advent/" >Advent(2)</a></li>
+
+                <li class="breadcrumb-item"><a  href="../../Advent/03-mmap/" >A Map to Persistance!</a></li>
+
+            </ol>
+        </nav>
+
+    </div>
+</div>
+<div class="row flex-grow-1">
+    <div id="sidebar" class="col-sm-12 col-md-3 d-none d-sm-block">
+        <ul class="nav nav-pills flex-column">
+            <li><img class="w-75 mx-auto d-block m-3" src="/Advent/tux.png"/></li>        <li class="nav-item "><a class="nav-link" href="../../Advent/" >Task overview</a>
+        </li>
+            <li class="nav-item "><a class="nav-link" href="https://collaborating.tuhh.de/e-exk4/advent" >Git repository</a>
+            </li>
+            <li class="nav-item "><a class="nav-link" href="https://lists.tuhh.de/sympa/info/osg-advent" >Mailing list</a>
+            </li>
+            <li class="nav-item "><a class="nav-link" href="https://communicating.tuhh.de/eim/channels/osg-advent" >Mattermost (TUHH)</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="col-xs-12 col-md-9" style="background:white; padding-top:15px;">
+        <p><h1>A Map to Persistance!</h1>
+        <div class="well">
+            <div class="row">
+                <div class="col-2">
+                    <span style="font-size: 100px">☃️</span>
+                </div>
+                <div class="col-10">
+                    <strong>Git-Repository</strong>:
+                    <a class="badge bg-primary" href="https://collaborating.tuhh.de/e-exk4/advent/-/tree/master/03-mmap">Template</a>
+                    <a class="badge bg-success" href="https://collaborating.tuhh.de/e-exk4/advent/-/tree/solution_3/03-mmap">Solution</a>
+                    <a class="badge bg-info" href="diff.html">Solution-Diff</a> (Solution is posted at 18:00 CET)
+                    <br/>
+                    <strong>Workload</strong>: 60 lines of code<br/>
+
+                    <strong>Important System-Calls</strong>: <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/mmap.2.html">mmap(2)</a>, <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/ftruncate.2.html">ftruncate(2)</a><br/>
+                </div>
+            </div>
+
+
+        </div>
+
+        </p>
+        <p>ELFs are C programmers.
+            They like the language, they dream of pointers, and they are sceptic of any new language feature that those shiny newcomers bring.
+            But sometimes they see features that they really would like to have, but they cannot admit that they were wrong about their scepticism.
+            Instead they implement the feature on their own in C.
+            For example, in the <a href="https://doi.org/10.1145/1961295.1950379">Mnemosyne</a> system, the user can annotate a global variable with the <code>persistent</code> attribute and it will retain its value over different program invocation.</p>
+        <h1 id="mmap-manipulate-the-memory-mapping-of-your-process">mmap - Manipulate the memory mapping of your process</h1>
+        <p>Today, we will look at the virtual-memory subsystem of Linux and the <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/mmap.2.html">mmap(2)</a> system call, which we can use to manipulate the virtual address space of the current process.
+            As we discussed <a  href="../../Advent/02-clone/" >yesterday</a>, most processes have their very own address space.
+            This means that the same pointer (e.g., <code>0x45004</code>) resolves to different memory cell in two different processes, making it a <em>virtual address</em>.
+            The translation between virtual and physical addresses is done by the <a href="https://en.wikipedia.org/wiki/Memory_management_unit">MMU</a>, which is configured by the operating system.
+            The MMU is hardware circuitry that translates (or maps) on the granularity of pages (usually 4096 bytes): (virtual) <em>pages</em> to (physical) <em>page frames</em>.</p>
+        <p>While we can use <code>mmap()</code> to simply request (<em>anonymous</em>) memory for our amusement, the virtual-memory subsystem of Linux is much more flexible (as are other operating systems).
+            And today, we will use one of these features: <strong>file-mapped I/O</strong>, where we instruct the operating system to make the contents of a file visible within our address space.
+            Unlike <code>pread()</code>, a file mapping does not only transfer the file contents once into a memory region, but the file mapping is <em>synchronized</em> with the actual file. Therefore, a write into a file mapping will actually change the file; no explicit synchronization (or <code>pwrite()</code>) is required.</p>
+        <p>Internally, a <code>mmap()</code> call creates a new <a href="https://elixir.bootlin.com/linux/v5.16/source/include/linux/mm_types.h#L395">struct vm_area_struct</a> object and adds it to the <a href="https://elixir.bootlin.com/linux/v5.16/source/include/linux/mm_types.h#L467">struct mm_struct</a> of the current process.
+            And if the new mapping is anonymous, that's about it.
+            However, for a file mapping, we also set <code>vm_file</code> pointer to the file that we address with <code>mmap()</code>s <code>fd</code> argument.</p>
+        <p>But "Wait!", you might ask: "When is the file content actually read into memory?"
+            For this, we have to understand that Linux fills its <strong>page tables</strong>, which are the MMU-specific representation of an <code>mm_struct</code>, lazily on demand.
+            So, whenever you want to access a page that is not yet present in the page table, the MMU will throw a page fault, the OS will check whether the access was legitimate, and if so allocate a page frame and install it at the faulting address.
+            And it is in this process, that the OS inspects the <code>vm_area_struct</code> for a <code>vm_file</code> pointer and reads in (we call it, "it pages in") the respective file content.
+            The process is paused until the accessed page is actually present in memory.
+            Thereby, we also can conclude that mapping a huge (multiple GiB) file is not expensive in itself, as we only pay for those accesses that we actually perform.</p>
+        <h2 id="tasks">Tasks</h2>
+        <p>As mapping a file into our virtual-address space is rather boring, we've come up with a more interesting challenge: In this task, you should make some specially-marked variables <strong>persistent</strong>.
+            For this, we replace the anonymous memory where the variables live at the process start, with a shared file mapping.
+            Thereby, the OS will synchronize those variables with a backing store.
+            For example, in the following (simplified) program, we use the file <code>mmap.persistent</code> as a backing store:</p>
+        <div class="codehilite"><pre><span></span>  persistent int count = 10;
+  ...
+  int main(int argc, char *argv[]) {
+     setup_persistent(&quot;mmap.persistent&quot;);
+     printf(&quot;count = %d\n&quot;, count++);
+  }
+</pre></div>
+
+
+        <p>If we invoke this program three times, we expect the following output:</p>
+        <div class="codehilite"><pre><span></span> $&gt; ./test
+ count = 10
+ $&gt; ./test
+ count = 11
+ $&gt; ./test
+ count = 12
+</pre></div>
+
+
+        <ol>
+            <li>Complete the function <code>setup_persistent()</code></li>
+            <li>Inspect the file <code>mmap.persistent</code> with the <code>xxd</code> tool (hexdump)</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <footer class="footer">
+          <span class="text-muted">Last modified: 2022-12-06 17:50:04.233902 by
+ [id:<a href="../..//p/advent-03-mmap">advent-03-mmap</a>]
+              | <a href="../../impressum.html">Impressum</a> | <a href="https://www.tuhh.de/alt/tuhh/about-us/data-privacy.html">Datenschutzerkl&auml;rung</a></span>
+    </footer>
+</div>
+</div><!-- /.container -->
+
+
+
+<script language="JavaScript" type="text/javascript">
+    var shiftWindow = function() {
+        $(document.getElementById(location.hashObj)).removeClass("highlighted");
+        location.hashObj = location.hash.substr(1);
+        $(document.getElementById(location.hashObj)).addClass("highlighted");
+        if (location.hashObj) scrollBy(0, -50);
+    };
+    $(document).ready(function() {
+        location.hashObj = null;
+        if (location.hash) shiftWindow();
+        window.addEventListener("hashchange", shiftWindow);
+    });
+</script>
+<script language="JavsScript" type="text/javascript">
+    window.onload = function() {
+        $("h2, h3").each(function(idx, headline) {
+            if (headline.id) {
+                $('<a class="headlineref" style="font-size: 12px; margin-left: 5px; vertical-align: middle;" href="#'+headline.id+'">&#128279;</a>').appendTo(headline);
+            }
+        });
+    }
+</script>
+</body>
+</html>

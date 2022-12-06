@@ -45,14 +45,45 @@ int barfoo = 42;
 page_aligned persistent int persistent_end;
 
 int setup_persistent(char *fn) {
-    // FIXME: Install persistent mapping and return 0;
-    return -1;
+    struct stat st;
+    int stat_success = stat(fn, &st);
+    int fd = open(fn, O_RDWR | O_CREAT, 0666);
+    if (fd < 0)
+    {
+        perror("open");
+        return -1;
+    }
+    if ( stat_success == -1 )
+    {
+        if (ftruncate(fd, (char *) &persistent_end - (char *) &persistent_start) != 0)
+        {
+            perror("ftruncate");
+            return -1;
+        }
+        if (write(fd, &persistent_start, (char *) &persistent_end - (char *) &persistent_start)
+        != (char *) &persistent_end - (char *) &persistent_start)
+        {
+            perror("write");
+            return -1;
+        }
+    }
+
+    int *map = mmap(&persistent_start, (char*)&persistent_end - (char*)&persistent_start,
+                    PROT_READ | PROT_WRITE, MAP_SHARED | MAP_FIXED, fd, 0
+                    );
+
+    if (map == MAP_FAILED)
+        return -1;
+
+    close(fd);
+    return 0;
 }
 
 int main(int argc, char *argv[]) {
     printf("section persistent: %p--%p\n", &persistent_start, &persistent_end);
     // Install the persistent mapping
-    if (setup_persistent("mmap.persistent") == -1) {
+    if (setup_persistent("mmap.persistent") == -1)
+    {
         perror("setup_persistent");
         return -1;
     }
@@ -74,6 +105,5 @@ int main(int argc, char *argv[]) {
         printf("---- system(\"%s\"):\n", cmd);
         system(cmd);
     }
-
     return 0;
 }
