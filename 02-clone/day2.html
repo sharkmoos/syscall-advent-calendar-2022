@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="shortcut icon" href="../../static/favicon.ico" type="image/x-icon">
+    <title> OSG - Clone a Chimera!</title>
+
+    <!-- Bootstrap -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../static/style.css" rel="stylesheet" />
+    <script language="JavaScript" type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="https://www3.tuhh.de/osg/p/advent-02-clone" rel="bookmark" />
+
+</head>
+<body>
+<div class="container d-flex flex-column" style="min-height: 100vh; background: #E4E4E4";>
+    <div class="row">
+        <div class="col-md-3 d-none d-md-block" style="background: white; height:80px;">
+            <a id="tuhh-logo" href="https://www.tuhh.de/" title="TUHH Website">
+                <img id="tuhh-logo-title" style="max-width: 67%; max-height:70px; margin: 10px 16%; " data-fallback="../../static/img/tuhh-logo.gif" alt="TUHH" src="../../static/img/tuhh-logo.svg">
+            </a>
+        </div>
+        <div class="col-xs-12 col-md-9 d-flex" style="background: #f8f8f8; height:80px;">
+            <div class="flex-grow-1 d-none d-sm-block" " style="position: relative;">
+            <span class="d-sm-none d-md-inline" style="position:absolute; top: 10px; font: 14px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;">E-EXK4</span>
+            <a style="position:absolute; bottom: 10px; text-decoration: none; font: 36px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;" href="../../" title="Operating System Group">Operating System Group</a>
+        </div>
+        <div class="flex-grow-1 d-sm-none" " style="position: relative;">
+        <a style="position:absolute; bottom: 10px; text-decoration: none; font: 36px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;" href="../../" title="Operating System Group">OSG</a>
+    </div>
+    <a href="../../Advent/">
+        <img style="height:90%; padding-top:10px; padding-right:10px; " alt="OSG Logo" data-fallback="../../Advent/tux.svg" src="../../Advent/tux.svg" />
+    </a>
+    <img style="height:90%; padding-top:10px; " alt="OSG Logo" data-fallback="../../static/img/osg-logo.png" src="../../static/img/osg-logo.svg" />
+</div>
+</div>
+<div class="row">
+    <div class="col-md-3 flex-fill"><!-- Empty --></div>
+    <div class="col-md-9" style="padding: 0px;">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="../../index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item "><a class="nav-link" href="../../People/" >People</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Research/" >Research</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Publications/" >Publications</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Lehre/" >Teaching</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Theses/" >Theses (BA/MA)</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Advent" >🎄 Advent(2) 🎄</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../kontakt.html" >Contact</a> </li>
+                    <hr class="d-block d-sm-none" />
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="../../Advent/" >Task overview</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://collaborating.tuhh.de/e-exk4/advent" >Git repository</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://lists.tuhh.de/sympa/info/osg-advent" >Mailing list</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://communicating.tuhh.de/eim/channels/osg-advent" >Mattermost (TUHH)</a>
+                    </li>
+
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </nav>
+        <div style="height: 150px; background: #FFF7EA url('../../static/img/banner.jpg') 50% 50% no-repeat;">
+            <a class="float-end" style="text-decoration:none; font-size:40%; color:white" href="https://commons.wikimedia.org/wiki/Category:Technische_Universit%C3%A4t_Hamburg?uselang=de#/media/File:Geb%C3%A4ude_E,_der_sogenannte_Lindwurm.jpg">
+                Denis Sasinska, CC BY-SA 4.0
+            </a>
+        </div>
+        <nav style="--bs-breadcrumb-divider: '>';"  aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="https://www.tuhh.de">TUHH</a></li>
+                <li class="breadcrumb-item"><a  href="../../Advent/" >Advent(2)</a></li>
+
+                <li class="breadcrumb-item"><a  href="../../Advent/02-clone/" >Clone a Chimera!</a></li>
+
+            </ol>
+        </nav>
+
+    </div>
+</div>
+<div class="row flex-grow-1">
+    <div id="sidebar" class="col-sm-12 col-md-3 d-none d-sm-block">
+        <ul class="nav nav-pills flex-column">
+            <li><img class="w-75 mx-auto d-block m-3" src="/Advent/tux.png"/></li>        <li class="nav-item "><a class="nav-link" href="../../Advent/" >Task overview</a>
+        </li>
+            <li class="nav-item "><a class="nav-link" href="https://collaborating.tuhh.de/e-exk4/advent" >Git repository</a>
+            </li>
+            <li class="nav-item "><a class="nav-link" href="https://lists.tuhh.de/sympa/info/osg-advent" >Mailing list</a>
+            </li>
+            <li class="nav-item "><a class="nav-link" href="https://communicating.tuhh.de/eim/channels/osg-advent" >Mattermost (TUHH)</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="col-xs-12 col-md-9" style="background:white; padding-top:15px;">
+        <p><h1>Clone a Chimera!</h1>
+        <div class="well">
+            <div class="row">
+                <div class="col-2">
+                    <span style="font-size: 100px">☃️</span>
+                </div>
+                <div class="col-10">
+                    <strong>Git-Repository</strong>:
+                    <a class="badge bg-primary" href="https://collaborating.tuhh.de/e-exk4/advent/-/tree/master/02-clone">Template</a>
+                    <a class="badge bg-success" href="https://collaborating.tuhh.de/e-exk4/advent/-/tree/solution_2/02-clone">Solution</a>
+                    <a class="badge bg-info" href="diff.html">Solution-Diff</a> (Solution is posted at 18:00 CET)
+                    <br/>
+                    <strong>Workload</strong>: 46 lines of code<br/>
+
+                    <strong>Important System-Calls</strong>: <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/clone.2.html">clone(2)</a>, <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/fork.2.html">fork(2)</a>, <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/getpid.2.html">getpid(2)</a>, <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/gettid.2.html">gettid(2)</a><br/>
+                </div>
+            </div>
+
+
+        </div>
+
+        </p>
+        <p>People always told me that Unix is all about files, but now at the Christmas village, the ELFs taugh me that this is actually not true.
+            In Unix systems, and especially in Linux, everything is either a file, a <em>process</em>, or something that hides behind the file interface but is actually an gremlin in disguise.
+            And today, we want look a little bit deeper into the nature of processes and threads and the muddy middleground between them.
+            Or, to say it more clearly, we will look at the almighty <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/clone.2.html">clone(2)</a> system call, which is the modern way to create processes, threads, and namespaces.
+            The latter one is also the basis of all container techniques, like Docker or LXC.</p>
+        <h2 id="the-linux-task">The Linux Task</h2>
+        <p>First, we have to understand that within the Linux kernel (kernel-level) threads and processes are the same object: <a href="https://elixir.bootlin.com/linux/v5.16/source/include/linux/sched.h#L723">struct task_struct</a>.
+            These <code>task_struct</code>s are the entity of scheduling and every time the kernel returns to the user space, it returns to a specific <code>task_struct</code>. And for example, the field <a href="https://elixir.bootlin.com/linux/v5.16/source/include/linux/sched.h#L855">struct mm_struct *mm</a> points to the address space (mm=memory management) that should be activated if we dispatch to this task.</p>
+        <p>With a grain of salt, this explains the relationship of threads and processes. If the <code>mm</code>-pointer of two tasks point to the same <code>mm_struct</code> they are within the same process. If they point to a different <code>mm_struct</code>, they are located in different processes.
+            Actually, as we will see, the distinction is a little bit finer than this as <strong>thread groups</strong> exist and process-affiliation is actually managed through these.</p>
+        <p>But this also raises the question, if two tasks can differ or match in their <code>mm_struct</code>-pointer, why can't they match or differ in other important aspects of resource usage.
+            For example, can two tasks work in a different file-system tree?
+            And indeed, there is a <a href="https://elixir.bootlin.com/linux/v5.16/source/include/linux/sched.h#L1065">struct fs_struct *fs</a> pointer for exactly this purpose (see <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/chroot.2.html">chroot(2)</a>)!</p>
+        <h2 id="the-clone2-system-call">The clone(2) System Call</h2>
+        <p>Many of you are familiar with the <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/fork.2.html">fork(2)</a> system call, which copies the current process and returns twice(!): once in the parent process, and once in the child process. From ten miles away, it creates a new address space, copies the parent's virtual memory and its <code>task_struct</code>, and hands the newly-cloned child <code>task_struct</code> to the scheduler. <a href="https://doi.org/10.1145/3317550.3321435">Plain</a> and <a href="https://www.systemcall.rocks/sc1-weggabelungen-kontrollpunkte-addressraeume.html">simple</a>!</p>
+        <p>But actually, <code>fork()</code> is quite coarse grained, as we cannot control what resources parent and child task should share?
+            They will live in independent address spaces, they will have the same file system, and they will see the same list of running processes.
+            However, with the more elaborated <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/clone.2.html">clone(2)</a> system call we have a much higher degree of control and can even emulate the behavior of <code>fork()</code>!</p>
+        <div class="codehilite"><pre><span></span>int clone(int (*fn)(void *), void *stack, int flags, void *arg, ...);
+</pre></div>
+
+
+        <p>Unlike <code>fork()</code>, we have to explicitly provide a stack pointer (<code>stack</code>) and a function pointer (<code>fn</code>), where the newly created task should start its user space execution.
+            However, we are also able to pass an argument to the new task and control the behavior of <code>clone()</code> with different flags.
+            For each resource (address space, file system, UID namespace, ...), we can decide whether they are shared between parent and child. For example, with <code>CLONE_VM</code>, we instruct <code>clone</code> to share the virtual memory between both tasks (i.e., they have the same <code>mm</code>-pointer).
+            And with <code>CLONE_THREAD</code>, the new task is placed in (or shares a) thread group with the calling thread. Thereby, they are actually part of the same process.
+            But this also means that we can have two actual processes that share the same address space! A chimera between process and thread!</p>
+        <h1 id="the-uid-namespace">The UID Namespace</h1>
+        <p>Namespaces are sets of name-to-object mappings.
+            For example, a file system is a namespace as it maps human-readable filenames to inodes/file contents.
+            Actually, address spaces are also namespaces as the virtual addresses are translated by the MMU (Memory Management Unit) to physical addresses.
+            And by using different <code>clone()</code> flags, we can control whether the kernel uses the same (shared) namespaces as the calling task or if we create new ones (by cloning).</p>
+        <!-- den letzten Satz bitte prüfen. Der Kernel benutzt die gleichen geteilten Namespaces wie der rufende Prozess? Ist das korrekt? -->
+
+        <p>One of the simplest "namespaces" that we can create for our new task is a User ID namespace.
+            A UID namespace is a translation table between inside-user IDs and outside user IDs.
+            Within a UID namespace, you can have <code>uid=0</code> (root), which is translated to a normal user id (e.g., 1000) outside the namespace:</p>
+        <div class="codehilite"><pre><span></span># from_start to_start length
+0            1000     1
+</pre></div>
+
+
+        <p>The UID namespace is represented by a file in Linux in <code>/proc/self/uid_map</code>. It can be alterted by writing into this file with the above format (without the line starting with <code>#</code>).</p>
+        <p>UID namespaces were one of the enablers of Docker containers, as they allow us to have a full-blown system, including daemons, within a container.
+            Actually, all threads/processes/tasks within a Docker container share the same UID namespace.</p>
+        <h1 id="the-tasks">The Tasks</h1>
+        <ol>
+            <li>Implement <code>fork()</code> with <code>clone()</code>.</li>
+            <li>Create a process-thread chimera, i.e a process which shares its address space with a different process, with <code>clone()</code>.</li>
+            <li>Create a real thread with <code>clone()</code> that shares the address space and that is put in the same thread group.</li>
+            <li>(Extra) Fork a process into a new UID namespace and become root therein. <code>getuid()</code> will show you your success.</li>
+        </ol>
+        <h1 id="hints">Hints</h1>
+        <ul>
+            <li>Two threads are in the same process if <code>getpid()</code> returns the same value (returns the process ID or the parent process).</li>
+            <li><code>gettid()</code> returns the thread/task id.</li>
+            <li>For <code>setuid()</code> to work within your UID namespace you require a simple <code>uid_map</code> that can look like: <code>sprintf("0 %d 1", outside_uid)</code>.</li>
+        </ul>
+        <!-- dieser sprintf Ruf macht hier auch keinen Sinn, oder ich verstehe ihn nicht -->
+    </div>
+</div>
+
+<div class="row">
+    <footer class="footer">
+          <span class="text-muted">Last modified: 2022-12-06 17:50:04.302688 by     
+ [id:<a href="../..//p/advent-02-clone">advent-02-clone</a>]
+              | <a href="../../impressum.html">Impressum</a> | <a href="https://www.tuhh.de/alt/tuhh/about-us/data-privacy.html">Datenschutzerkl&auml;rung</a></span>
+    </footer>
+</div>
+</div><!-- /.container -->
+
+
+
+<script language="JavaScript" type="text/javascript">
+    var shiftWindow = function() {
+        $(document.getElementById(location.hashObj)).removeClass("highlighted");
+        location.hashObj = location.hash.substr(1);
+        $(document.getElementById(location.hashObj)).addClass("highlighted");
+        if (location.hashObj) scrollBy(0, -50);
+    };
+    $(document).ready(function() {
+        location.hashObj = null;
+        if (location.hash) shiftWindow();
+        window.addEventListener("hashchange", shiftWindow);
+    });
+</script>
+<script language="JavsScript" type="text/javascript">
+    window.onload = function() {
+        $("h2, h3").each(function(idx, headline) {
+            if (headline.id) {
+                $('<a class="headlineref" style="font-size: 12px; margin-left: 5px; vertical-align: middle;" href="#'+headline.id+'">&#128279;</a>').appendTo(headline);
+            }
+        });
+    }
+</script>
+</body>
+</html>
