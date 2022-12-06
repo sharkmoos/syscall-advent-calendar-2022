@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="shortcut icon" href="../../static/favicon.ico" type="image/x-icon">
+    <title> OSG - Workbench Management</title>
+
+    <!-- Bootstrap -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../static/style.css" rel="stylesheet" />
+    <script language="JavaScript" type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="https://www3.tuhh.de/osg/p/advent-04-futex" rel="bookmark" />
+
+</head>
+<body>
+<div class="container d-flex flex-column" style="min-height: 100vh; background: #E4E4E4";>
+    <div class="row">
+        <div class="col-md-3 d-none d-md-block" style="background: white; height:80px;">
+            <a id="tuhh-logo" href="https://www.tuhh.de/" title="TUHH Website">
+                <img id="tuhh-logo-title" style="max-width: 67%; max-height:70px; margin: 10px 16%; " data-fallback="../../static/img/tuhh-logo.gif" alt="TUHH" src="../../static/img/tuhh-logo.svg">
+            </a>
+        </div>
+        <div class="col-xs-12 col-md-9 d-flex" style="background: #f8f8f8; height:80px;">
+            <div class="flex-grow-1 d-none d-sm-block" " style="position: relative;">
+            <span class="d-sm-none d-md-inline" style="position:absolute; top: 10px; font: 14px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;">E-EXK4</span>
+            <a style="position:absolute; bottom: 10px; text-decoration: none; font: 36px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;" href="../../" title="Operating System Group">Operating System Group</a>
+        </div>
+        <div class="flex-grow-1 d-sm-none" " style="position: relative;">
+        <a style="position:absolute; bottom: 10px; text-decoration: none; font: 36px Arial, sans-serif, Verdana, Helvetica; color:#5076b3;;" href="../../" title="Operating System Group">OSG</a>
+    </div>
+    <a href="../../Advent/">
+        <img style="height:90%; padding-top:10px; padding-right:10px; " alt="OSG Logo" data-fallback="../../Advent/tux.svg" src="../../Advent/tux.svg" />
+    </a>
+    <img style="height:90%; padding-top:10px; " alt="OSG Logo" data-fallback="../../static/img/osg-logo.png" src="../../static/img/osg-logo.svg" />
+</div>
+</div>
+<div class="row">
+    <div class="col-md-3 flex-fill"><!-- Empty --></div>
+    <div class="col-md-9" style="padding: 0px;">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="../../index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item "><a class="nav-link" href="../../People/" >People</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Research/" >Research</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Publications/" >Publications</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Lehre/" >Teaching</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Theses/" >Theses (BA/MA)</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../Advent" >🎄 Advent(2) 🎄</a> </li>
+                    <li class="nav-item "><a class="nav-link" href="../../kontakt.html" >Contact</a> </li>
+                    <hr class="d-block d-sm-none" />
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="../../Advent/" >Task overview</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://collaborating.tuhh.de/e-exk4/advent" >Git repository</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://lists.tuhh.de/sympa/info/osg-advent" >Mailing list</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none"><a class="nav-link" href="https://communicating.tuhh.de/eim/channels/osg-advent" >Mattermost (TUHH)</a>
+                    </li>
+
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </nav>
+        <div style="height: 150px; background: #FFF7EA url('../../static/img/banner.jpg') 50% 50% no-repeat;">
+            <a class="float-end" style="text-decoration:none; font-size:40%; color:white" href="https://commons.wikimedia.org/wiki/Category:Technische_Universit%C3%A4t_Hamburg?uselang=de#/media/File:Geb%C3%A4ude_E,_der_sogenannte_Lindwurm.jpg">
+                Denis Sasinska, CC BY-SA 4.0
+            </a>
+        </div>
+        <nav style="--bs-breadcrumb-divider: '>';"  aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="https://www.tuhh.de">TUHH</a></li>
+                <li class="breadcrumb-item"><a  href="../../Advent/" >Advent(2)</a></li>
+
+                <li class="breadcrumb-item"><a  href="../../Advent/04-futex/" >Workbench Management</a></li>
+
+            </ol>
+        </nav>
+
+    </div>
+</div>
+<div class="row flex-grow-1">
+    <div id="sidebar" class="col-sm-12 col-md-3 d-none d-sm-block">
+        <ul class="nav nav-pills flex-column">
+            <li><img class="w-75 mx-auto d-block m-3" src="/Advent/tux.png"/></li>        <li class="nav-item "><a class="nav-link" href="../../Advent/" >Task overview</a>
+        </li>
+            <li class="nav-item "><a class="nav-link" href="https://collaborating.tuhh.de/e-exk4/advent" >Git repository</a>
+            </li>
+            <li class="nav-item "><a class="nav-link" href="https://lists.tuhh.de/sympa/info/osg-advent" >Mailing list</a>
+            </li>
+            <li class="nav-item "><a class="nav-link" href="https://communicating.tuhh.de/eim/channels/osg-advent" >Mattermost (TUHH)</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="col-xs-12 col-md-9" style="background:white; padding-top:15px;">
+        <p><h1>Workbench Management</h1>
+        <div class="well">
+            <div class="row">
+                <div class="col-2">
+                    <span style="font-size: 100px">☃️</span>
+                </div>
+                <div class="col-10">
+                    <strong>Git-Repository</strong>:
+                    <a class="badge bg-primary" href="https://collaborating.tuhh.de/e-exk4/advent/-/tree/master/04-futex">Template</a>
+                    <a class="badge bg-success" href="https://collaborating.tuhh.de/e-exk4/advent/-/tree/solution_4/04-futex">Solution</a>
+                    <a class="badge bg-info" href="diff.html">Solution-Diff</a> (Solution is posted at 18:00 CET)
+                    <br/>
+                    <strong>Workload</strong>: 101 lines of code<br/>
+
+                    <strong>Important System-Calls</strong>: <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/futex.2.html">futex(2)</a><br/>
+                </div>
+            </div>
+
+
+        </div>
+
+        </p>
+        <p>There are many ELFs, really <a href="https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_node/ld_23.html">PT_LOAD</a>s of ELFs, that are all running around, preparing presents, grabbing tools, sewing, glueing, skrewing and what not.
+            And they also have a free-floating workbench policy, where an ELF will use a workbench only for a single task and then release it to be used by other ELFs.
+            Thereby, they can maximize their output as they get away with having less idle work benches.
+            However, this requires <em>coordination</em> as sometimes two ELFs want to use the same workbench for their next task. Luckily, there are some Linux primitives that might help us with this <em>synchronization problem</em>. However, they are rather low level and a better abstraction like a <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">semaphore</a> would be great!</p>
+        <h1 id="futex-fast-user-space-mutexes">futex - Fast User Space Mutexes</h1>
+        <p>Today, we will look at the important topic of inter-process communication (IPC) and more specifically at the topic of synchronization.
+            How can we as application developers coordinate the work of multiple threads or processes.
+            Of course, you can and usually should use the pthread <em>library</em> for mutexes, barriers, and condition variables.
+            These primitives implement waiting for other threads, either until a mutex is unlocked, a barrier is reached by all of the threads, or when a certain condition is met.
+            But how does the maintainer of that library implement these high-level primitives?
+            To answer this, we will look today at the <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/futex.2.html">futex(2)</a> system call, which is the root of all modern synchronization mechanism on Linux.</p>
+        <p>Described by <a href="http://kernel.org/doc/ols/2002/ols2002-pages-479-495.pdf">Franke and Russel</a>, futexes assist us in building synchronization primitives that involve <strong>passive waiting</strong>.
+            A thread waits <strong>actively</strong> (sometimes busy waiting), when it itself, in its own CPU time, <em>actively</em> waits for a condition to become true.
+            In contrast to this, <strong>passive waiting</strong> is a technique to delegate this duty to the kernel while the process is send to a sleep state.
+            In the meantime, while our process sleeps, the kernel can schedule other processes onto the CPU.</p>
+        <p>With futexes, the Linux kernel takes a minimal approach to passive waiting: Instead of supplying many primitives for all kind of operations (semaphores, condition variables, barriers) as individual system calls, we only have a single system call that implements the minimal necessary semantic within the kernel: (1) With <code>FUTEX_WAIT</code>, we enqueue the current task into a wait queue, and with (2) <code>FUTEX_WAKE</code>, we can wakeup N threads from this wait queue.
+            The reasons why and when threads invoke these primitives is fully up to the user space.
+            Thereby, the user can implement different high-level abstractions and waiting strategies on top of a single system call; a great example of a well-crafted kernel interface!</p>
+        <div class="codehilite"><pre><span></span>int futex(uint32_t *addr, int op, uint32_t val, ....);
+</pre></div>
+
+
+        <p>Furthermore, the futex interface is very versatile and requires no explicit creation or destruction of in-kernel objects.
+            As we see from the prototype, the futex system call gets a pointer as its first argument: this 32-bit memory cell referenced by this pointer <strong>is</strong> the futex.
+            So we can wait on any 32-bit word in our address space!
+            But how does this work?
+            Internally, Linux creates the waiting queues on demand and uses a hash table to map the user space address to a specific wait queue.
+            Within each wait queue, threads that wait on different addresses are mixed and the kernel iterates over these lists, filtering out the actually referenced threads.</p>
+        <p><img alt="" class="img-thumbnail mx-auto d-block w-50" src="futex.png" /></p>
+        <p>While <a style="font-family:monospace;" href="https://manpages.ubuntu.com/manpages/jammy/en/man2/futex.2.html">futex(2)</a> supports many more variants of wait and wake, we will now have a look at the two most basic variants:</p>
+        <ul>
+            <li>
+                <p><code>op</code>=<code>FUTEX_WAKE</code>: Wake up N=<code>val</code> threads from the referenced wait queue. If there are not enough waiting threads, nothing happens and no state is recorded.</p>
+            </li>
+            <li>
+                <p><code>op</code>=<code>FUTEX_WAIT</code>: Enqueue the current thread into the waiting queue, if(!) the condition <code>*addr == val</code> holds true.</p>
+            </li>
+        </ul>
+        <p>The condition for the wait operation is necessary to actually give synchronization guarantees.
+            For example, if you implement the semaphore (see tasks), you decrement the 32-bit word and sleep if the value reaches zero.
+            But what happens, when another process increments the value in between decrementing and going to sleep?
+            Then we must not sleep but would!
+            So in essence we have to weld the check and the sleep operation together, executing them <em>at the same time</em> (atomically).
+            And this can be done with the futex system call: <code>futex(addr, FUTEX_WAIT, 0)</code>.
+            Thereby, we avoid the described <strong>lost-wakeup problem</strong>.</p>
+        <h2 id="tasks">Tasks</h2>
+        <p>Today the task is comprised of three parts:</p>
+        <ol>
+            <li>Create a <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">semaphore</a> implementation on top of the futex system call. For the user space part of the semaphore, you should use atomic instructions.</li>
+            <li>Build a bounded buffer implementation that supports <code>bb_put()</code> and <code>bb_get()</code> and is synchronized with three of your semaphores. If the buffer is full, <code>bb_put</code> should block, if the buffer is empty, <code>bb_get</code> should block.</li>
+            <li>Write a simple test program with two processes (use fork!) that uses the bounded buffer to transfer data from the child process to the parent process. To test your semaphore implementation, let the child process initialize the bounded buffer after waiting for a second.</li>
+        </ol>
+        <h1 id="hints">Hints</h1>
+        <p>Decrementing and incrementing counters usually is a non-atomic read-update-write cycle. However, for our semaphore, we require atomic instructions, which are luckily available in the modern C standard:</p>
+        <div class="codehilite"><pre><span></span>atomic_int counter;
+
+// Retrieve the current counter
+int current = atomic_load(&amp;counter);
+
+// Retrieve the current counter and increment it
+int prev = atomic_fetch_add(&amp;counter, 1);
+
+// Atomically compare the counter and exchange its contents
+// with 42 if it currently has the value 23
+int value = 23;
+atomic_compare_exchange_strong(&amp;counter, &amp;value, 42)
+</pre></div>
+    </div>
+</div>
+
+<div class="row">
+    <footer class="footer">
+          <span class="text-muted">Last modified: 2022-12-06 17:50:04.164457 by
+ [id:<a href="../..//p/advent-04-futex">advent-04-futex</a>]
+              | <a href="../../impressum.html">Impressum</a> | <a href="https://www.tuhh.de/alt/tuhh/about-us/data-privacy.html">Datenschutzerkl&auml;rung</a></span>
+    </footer>
+</div>
+</div><!-- /.container -->
+
+
+
+<script language="JavaScript" type="text/javascript">
+    var shiftWindow = function() {
+        $(document.getElementById(location.hashObj)).removeClass("highlighted");
+        location.hashObj = location.hash.substr(1);
+        $(document.getElementById(location.hashObj)).addClass("highlighted");
+        if (location.hashObj) scrollBy(0, -50);
+    };
+    $(document).ready(function() {
+        location.hashObj = null;
+        if (location.hash) shiftWindow();
+        window.addEventListener("hashchange", shiftWindow);
+    });
+</script>
+<script language="JavsScript" type="text/javascript">
+    window.onload = function() {
+        $("h2, h3").each(function(idx, headline) {
+            if (headline.id) {
+                $('<a class="headlineref" style="font-size: 12px; margin-left: 5px; vertical-align: middle;" href="#'+headline.id+'">&#128279;</a>').appendTo(headline);
+            }
+        });
+    }
+</script>
+</body>
+</html>
