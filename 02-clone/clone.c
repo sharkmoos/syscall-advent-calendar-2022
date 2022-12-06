@@ -18,7 +18,6 @@
 #include <errno.h>
 #include <unistd.h>
 
-
 /* For our clone experiments, we working on a very low level and
  * fiddle around with threading. However, this leads to a problem with
  * the libc, which must perform some user-space operations to setup a
@@ -141,11 +140,6 @@ int main(int argc, char *argv[]) {
     }
     else
     {
-        // TODO: Implement multiple clone modes.
-        printf("Invalid clone() mode: %s\n", argv[1]);
-        return -1;
-    }
-    // TODO: Call clone here!
     pid_t pid = clone(child_entry, &stack[4096-1], flags, arg);
     if (pid == -1)
     {
@@ -159,6 +153,5 @@ int main(int argc, char *argv[]) {
         syscall_write("counter = ", counter);
         sleep(1);
     }
-
     return 0;
 }
