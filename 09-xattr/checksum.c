@@ -16,11 +16,29 @@
 // An helper function that maps a file to memory and returns its
 // length in *len and an open file descriptor in *fd.
 // On error, the function should return the null pointer;
-char * map_file(char *fn, ssize_t *len, int *fd) {
-    // FIXME: Map file to memory
-    // FIXME: Set *len = ...
-    // FIXME: Set *fd = ...
-    return NULL;
+char * map_file(char *fn, ssize_t *len, int *fd)
+{
+    struct stat st;
+    if (stat(fn, &st) == -1)
+        return NULL;
+    // Set *len = ...
+    *len = st.st_size;
+
+    // Set *fd = ...
+    *fd = open(fn, O_RDONLY);
+    if (!*fd)
+    {
+        return NULL;
+    }
+
+    // Map file to memory
+    char *mapping = mmap(NULL, *len, PROT_READ, MAP_SHARED, *fd, 0);
+    if (mapping == MAP_FAILED)
+    {
+        return NULL;
+    }
+
+    return mapping;
 }
 
 // A (very) simple checksum function that calculates and additive checksum over a memory range.
@@ -57,7 +75,7 @@ int main(int argc, char *argv[]) {
         reset_checksum = true;
         fn = argv[2];
     } else if (argc == 2) {
-        reset_checksum = true;
+        reset_checksum = false;
         fn = argv[1];
     } else {
         fprintf(stderr, "usage: %s [-r] <FILE>\n", argv[0]);
@@ -65,8 +83,54 @@ int main(int argc, char *argv[]) {
     // Avoid compiler warnings
     (void) fn; (void) reset_checksum; (void) xattr;
     // FIXME: map the file
-    // FIXME: reset the checksum if requested
-    // FIXME: calculate the checksum
-    // FIXME: get the old checksum and perform checking
+    ssize_t len;
+    int fd;
+    char *mapping = map_file(fn, &len, &fd);
+    if (mapping == NULL)
+    {
+        die("map_file");
+    }
+
+    // reset the checksum if requested
+    if ( reset_checksum )
+    {
+        if ( fremovexattr(fd, xattr) < 0 && errno != ENODATA )
+        {
+            die("fremovexattr");
+        }
+        return 0;
+    }
+
+    // calculate the checksum
+    uint64_t checksum = calc_checksum(mapping, len);
+    printf("checksum: %lx\n", checksum);
+
+
+    // get the old checksum and perform checking
+    int ret = 0;
+    uint64_t old_checksum;
+    if ( fgetxattr(fd, xattr, &old_checksum, sizeof(old_checksum)) != sizeof(old_checksum) )
+    {
+        printf("old_checksum: NULL\n");
+    }
+    else
+    {
+        printf("old_checksum: %lx\n", old_checksum);
+        if (checksum == old_checksum)
+        {
+            printf("checksums match\n");
+            ret = 0;
+        }
+        else
+        {
+            printf("checksums do not match\n");
+            ret = -1;
+        }
+    }
     // FIXME: set the new checksum
+    if (fsetxattr(fd, xattr, &checksum, sizeof(checksum), 0) != 0)  // set new checksum to extended attribute
+    {
+        die("fsetxattr");
+    }
+    return ret;
 }
