@@ -42,25 +42,29 @@ char * map_file(char *fn, ssize_t *len, int *fd)
 }
 
 // A (very) simple checksum function that calculates and additive checksum over a memory range.
-uint64_t calc_checksum(void *data, size_t len) {
+uint64_t calc_checksum(void *data, size_t len)
+{
     uint64_t checksum = 0;
 
     // First sum as many bytes as uint64_t as possible
     uint64_t *ptr = (uint64_t*)data;
-    while ((void *)ptr < (data + len)) {
+    while ((void *)ptr < (data + len))
+    {
         checksum += *ptr++;
     }
 
     // The rest (0-7 bytes) are added byte wise.
     char *cptr = (char*)ptr;
-    while ((void*)cptr < (data+len)) {
+    while ((void*)cptr < (data+len))
+    {
         checksum += *cptr;
     }
 
     return checksum;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     // The name of the extended attribute where we store our checksum
     const char *xattr = "user.checksum";
 
@@ -71,13 +75,18 @@ int main(int argc, char *argv[]) {
     bool reset_checksum;
 
     // Argument parsing
-    if (argc == 3 && strcmp(argv[1], "-r") == 0) {
+    if (argc == 3 && strcmp(argv[1], "-r") == 0)
+    {
         reset_checksum = true;
         fn = argv[2];
-    } else if (argc == 2) {
+    }
+    else if (argc == 2)
+    {
         reset_checksum = false;
         fn = argv[1];
-    } else {
+    }
+    else
+    {
         fprintf(stderr, "usage: %s [-r] <FILE>\n", argv[0]);
     }
     // Avoid compiler warnings
