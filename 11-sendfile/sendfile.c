@@ -68,7 +68,7 @@ ssize_t copy_write(int fd_in, int fd_out, int *syscalls)
 
 /* With sendfile, we can copy data between file descriptors without having to read it into a buffer first.
  * This saves us a system call and a memory allocation.
-*/
+ * */
 
 ssize_t copy_sendfile(int fd_in, int fd_out, int *syscalls) {
     ssize_t ret = 0;
