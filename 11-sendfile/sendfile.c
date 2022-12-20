@@ -19,15 +19,74 @@
 
 #define die(msg) do { perror(msg); exit(EXIT_FAILURE); } while(0)
 
-ssize_t copy_write(int fd_in, int fd_out, int *syscalls) {
+
+/* This function should be the slower implementation, as it does a read and then a write operation, requiring
+ * an intermediate buffer and two system calls. I tried to speed it up a little though by using a static buffer,
+ * so it won't have to allocate memory on every function call.
+ * */
+
+ssize_t copy_write(int fd_in, int fd_out, int *syscalls)
+{
     ssize_t ret = 0;
     *syscalls = 0;
+    static unsigned int buf_size = 128 * 1024; // As a reference, GNU cp uses an 128KiB buffer to copy data between file descriptors
+    static char *buffer = NULL; // static variables keep their value between function calls
+    if (!buffer)
+    {
+        buffer = (char*) malloc(buf_size); // Allocate buffer only once, due to static
+        if (!buffer)
+            die("malloc");
+    }
+    int len, written;
+    while (1)
+    {
+        len = read(fd_in, buffer, buf_size); // read data onto the static buffer
+        (*syscalls) ++;
+         if ( len < 1)
+         {
+             if (len == 0) // must be at the end if read is zero
+                 break;
+             else
+                 die("read"); // -1 etc is an error
+         }
+
+        written = 0;
+        while (written < len)
+        {
+           int w = write(fd_out, buffer + written, len - written);
+           (*syscalls) ++;
+           if (w < 1)
+               die("write");
+
+           written += w;
+        }
+
+        ret += written;
+    }
     return ret;
 }
+
+/* With sendfile, we can copy data between file descriptors without having to read it into a buffer first.
+ * This saves us a system call and a memory allocation.
+*/
 
 ssize_t copy_sendfile(int fd_in, int fd_out, int *syscalls) {
     ssize_t ret = 0;
     *syscalls = 0;
+
+    int len;
+    while (1)
+    {
+        len = sendfile(fd_out, fd_in, NULL, INT_MAX); // I guess we can just choose the maximum value for the length?
+        (*syscalls) ++;
+        if (len < 1)
+        {
+            if (len == 0) // same as read, if its zero we must be at the end.
+                break;
+            else
+                die("sendfile");
+        }
+    }
     return ret;
 }
 
